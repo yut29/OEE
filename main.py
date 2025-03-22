@@ -10,14 +10,11 @@ from datetime import datetime, timedelta
 from collections import deque
 import os
 
-# Disable hot reload to solve PyTorch class path issues 禁用热重载，解决PyTorch类路径问题
-# os.environ['STREAMLIT_SERVER_WATCH_FILES'] = 'false'
-
 # Configure page 配置页面 
 st.set_page_config(page_title="Stillstandserkennung", layout="wide")
 
 # Model path 模型路径
-MODEL_PATH = r"E:\FAU\Nur Stillstand\merged_dataset\yolov8_train\run32\weights\best.pt"
+MODEL_PATH = "best.pt"
 
 # Class name mapping 类别名称映射
 CLASS_NAMES = {
