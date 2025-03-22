@@ -1,41 +1,49 @@
 import streamlit as st
-import cv2
-import numpy as np
-import time
-import pandas as pd
-import plotly.express as px
-from datetime import datetime
 import os
+import platform
+import sys
 
-# Configure page
-st.set_page_config(page_title="Stillstandserkennung", layout="wide")
+st.set_page_config(page_title="环境测试", layout="wide")
 
-st.title("Zerspanungsmaschine-Stillstandserkennung")
+st.title("Streamlit 环境测试")
 
-st.write("这是一个简化版应用，用于测试 Streamlit Cloud 环境。")
-
-# Check environment
-st.write(f"Python 版本: {os.sys.version}")
-st.write(f"OpenCV 版本: {cv2.__version__}")
-st.write(f"NumPy 版本: {np.__version__}")
-st.write(f"Pandas 版本: {pd.__version__}")
-
-# Try to import ultralytics
-try:
-    from ultralytics import YOLO
-    st.success("成功导入 ultralytics YOLO!")
-    
-    # Try to initialize a model
-    try:
-        # For testing, we can use a small pre-trained model
-        model = YOLO("yolov8n.pt")  # 使用小型预训练模型进行测试
-        st.success("成功初始化 YOLO 模型!")
-    except Exception as e:
-        st.error(f"初始化 YOLO 模型时出错: {e}")
-except Exception as e:
-    st.error(f"导入 ultralytics 时出错: {e}")
-
-# Display system info
-st.subheader("系统信息")
+st.write(f"Python 版本: {platform.python_version()}")
+st.write(f"Python 路径: {sys.executable}")
 st.write(f"当前工作目录: {os.getcwd()}")
-st.write(f"环境变量: {dict(os.environ)}")
+
+st.subheader("导入测试")
+
+# 基本库测试
+with st.expander("基本库"):
+    try:
+        import numpy as np
+        st.success(f"NumPy 导入成功，版本: {np.__version__}")
+    except Exception as e:
+        st.error(f"NumPy 导入失败: {e}")
+    
+    try:
+        import pandas as pd
+        st.success(f"Pandas 导入成功，版本: {pd.__version__}")
+    except Exception as e:
+        st.error(f"Pandas 导入失败: {e}")
+    
+    try:
+        import plotly
+        st.success(f"Plotly 导入成功，版本: {plotly.__version__}")
+    except Exception as e:
+        st.error(f"Plotly 导入失败: {e}")
+
+# OpenCV 测试
+with st.expander("OpenCV"):
+    try:
+        import cv2
+        st.success(f"OpenCV 导入成功，版本: {cv2.__version__}")
+    except Exception as e:
+        st.error(f"OpenCV 导入失败: {e}")
+
+st.subheader("文件列表")
+st.write("仓库文件：")
+for root, dirs, files in os.walk("."):
+    if ".git" not in root:  # 排除 .git 目录
+        for file in files:
+            st.code(os.path.join(root, file))
