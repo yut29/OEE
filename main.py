@@ -10,9 +10,6 @@ from datetime import datetime, timedelta
 from collections import deque
 import os
 
-# Disable hot reload to solve PyTorch class path issues 禁用热重载，解决PyTorch类路径问题
-# os.environ['STREAMLIT_SERVER_WATCH_FILES'] = 'false'
-
 # Configure page 配置页面 
 st.set_page_config(page_title="Stillstandserkennung", layout="wide")
 
@@ -498,7 +495,7 @@ def main():
                             
                             # Convert format for Streamlit display 转换格式以便Streamlit显示
                             vis_frame_rgb = cv2.cvtColor(vis_frame, cv2.COLOR_BGR2RGB)
-                            video_placeholder.image(vis_frame_rgb, caption="Analyse", use_container_width=True)
+                            video_placeholder.image(vis_frame_rgb, caption="Analyse", width=True)
                             
                             # Create real-time status metrics panel 创建实时状态指标面板
                             with status_placeholder.container():
@@ -728,12 +725,12 @@ def main():
             if st.session_state.history_df is not None:
                 # Display data, but hide the original seconds column 显示数据，但隐藏原始秒数列
                 display_df = st.session_state.history_df.drop(columns=["Videozeit (Sekunden)"], errors='ignore')
-                st.dataframe(display_df, use_container_width=True)
+                st.dataframe(display_df, width=True)
             
             
             st.subheader("Statusdauer-Statistik")
             if st.session_state.status_periods_df is not None:
-                st.dataframe(st.session_state.status_periods_df, use_container_width=True)
+                st.dataframe(st.session_state.status_periods_df, width=True)
             
             
             # Draw status time series chart 绘制状态时间序列图
@@ -776,7 +773,7 @@ def main():
                     height=500
                 )
                 
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width=True)
             else:
                 st.warning("Keine Statusdaten verfügbar für die Visualisierung.")
         else:
@@ -806,7 +803,7 @@ def main():
                     title="Maschinenstatusverteilung",
                     color_discrete_sequence=px.colors.sequential.Blues_r
                 )
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width=True)
                 
                 # Display various time metrics 显示各种时间指标
                 col1, col2, col3, col4 = st.columns(4)
