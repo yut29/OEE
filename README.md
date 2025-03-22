@@ -12,7 +12,7 @@ Diese Anwendung nutzt Computer Vision-Technologie und Deep Learning-Modelle, um 
 
 ## Systemanforderungen
 
-- **Python:** Python 3.10 empfohlen
+- **Python:** Python 3.10.16 empfohlen
 - **Betriebssystem:** Die Anwendung wurde unter Windows entwickelt und getestet
 
 ## Installationsanleitung
