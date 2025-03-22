@@ -17,7 +17,7 @@ import os
 st.set_page_config(page_title="Stillstandserkennung", layout="wide")
 
 # Model path 模型路径
-MODEL_PATH = "models/best.pt"
+MODEL_PATH = "best.pt"
 
 # Class name mapping 类别名称映射
 CLASS_NAMES = {
