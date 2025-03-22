@@ -1,7 +1,9 @@
-setuptools>=68.0.0
+setuptools>=65.5.1
 streamlit==1.31.0
 opencv-python-headless==4.8.1.78
-numpy>=1.26.0
-pandas>=2.1.0
+numpy>=1.25.0
+pandas==2.0.3
 plotly==5.18.0
-# 暂时不包含 ultralytics 和 torch，先测试基本功能
+torch>=2.0.0
+torchvision>=0.15.0
+ultralytics==8.0.20
