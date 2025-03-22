@@ -365,9 +365,12 @@ def main():
                 uploaded_file = st.file_uploader("Videodatei hochladen", type=["mp4", "avi", "mov"])
                 if uploaded_file is not None:
                     # Save the uploaded file 保存上传的文件
-                    with open("temp_video.mp4", "wb") as f:
-                        f.write(uploaded_file.getbuffer())
-                    video_path = "temp_video.mp4"
+                    temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.mp4')
+                    temp_file.write(uploaded_file.getbuffer())
+                    video_path = temp_file.name
+                    temp_file.close()
+        
+                    st.success(f"Video erfolgreich hochgeladen: {uploaded_file.name}")    
                     should_analyze = True  # Reanalyze when a new file is uploaded 新上传文件时重新分析
                     st.session_state.has_analyzed = False
                 else:
