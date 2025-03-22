@@ -9,6 +9,7 @@ from ultralytics import YOLO
 from datetime import datetime, timedelta
 from collections import deque
 import os
+import tempfile
 
 # Configure page 配置页面 
 st.set_page_config(page_title="Stillstandserkennung", layout="wide")
