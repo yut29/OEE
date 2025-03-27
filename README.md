@@ -20,6 +20,7 @@ Diese Anwendung nutzt Computer Vision-Technologie und Deep Learning-Modelle, um 
 ### 1. Herunterladen
 main.py und best.pt
 Ändere den MODEL_PATH in der main.py auf den tatsächlichen Speicherort von best.py.
+(YOLO-Modelltraining umfasst zwei Hauptskripte: augmentation.py und yolotrain.py. Man kann auch selbstständig ein Objekterkennungsmodell trainieren.)
 
 ### 2. Abhängigkeiten installieren
 requirements.txt
