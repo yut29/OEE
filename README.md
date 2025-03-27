@@ -50,3 +50,4 @@ Die Seitenleiste der Anwendung bietet verschiedene Parametereinstellungen, die j
 - **Frame-Verarbeitungsfrequenz:** Einstellung, wie oft Frames analysiert werden sollen
 - **Erforderliche aufeinanderfolgende Frames für Statusänderung:** Steuerung der Stabilitätsanforderungen für Statusänderungen
 
+![image](https://github.com/user-attachments/assets/e77562c2-c2e9-4247-acb9-cb8226d85073)
